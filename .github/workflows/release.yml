@@ -49,11 +49,15 @@ jobs:
       - run: sudo apt update && sudo apt install -y ./helloworld-0.0.${{github.run_number}}-Linux.deb
       - name: Launch program
         run: |
-          echo '::set-output name=output::''$(helloworld_cli)'''\n
-          echo 'output = ${{steps.launch.outputs.output}}'
+          echo '::set-output name=output::$(helloworld_cli)'\n
         id: launch
         env:
           test_output: 'Version: ${{github.run_number}}'
+          real_output: '${{steps.launch.outputs.output}}'
+      - run: |
+          echo "Compare:"
+          echo '${{env.test_output}}'
+          echo '${{env.real_output}}'
       - name: test
-        if: ${{steps.launch.outputs.output}} == ${{env.test_output}}
+        if: ${{env.real_output}} == ${{env.test_output}}
         run: exit 1
