@@ -2,9 +2,8 @@ name: 'Release of the project'
 
 on:
   push:
-    tags:
-      - "v*"
-
+    branches:
+      - "main"
 
 jobs:
   build:
@@ -23,8 +22,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
+          tag_name: v0.0.${{ github.run_number }}
+          release_name: Release 0.0.${{ github.run_number }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
