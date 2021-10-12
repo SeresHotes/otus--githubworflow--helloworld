@@ -44,9 +44,9 @@ jobs:
       - uses: dsaltares/fetch-gh-release-asset@master
         with:
           file: "helloworld-0.0.${{github.run_number}}-Linux.deb"
-          target: "helloworld-0.0.${{github.run_number}}-Linux.deb"
+          target: "./helloworld-0.0.${{github.run_number}}-Linux.deb"
           token: ${{ secrets.GITHUB_TOKEN }}
-      - run: sudo apt update && sudo apt install -y helloworld-0.0.${{github.run_number}}-Linux.deb
+      - run: sudo apt update && sudo apt install -y ./helloworld-0.0.${{github.run_number}}-Linux.deb
       - name: Launch program
         run: |
           echo "::set-output name=output::$(helloworld_cli)\n"
