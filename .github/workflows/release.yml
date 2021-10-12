@@ -44,7 +44,7 @@ jobs:
       - run: apt update && apt install -y helloworld-0.0.${{github.run_number}}-Linux.deb
       - name: Launch program
         run: |
-          echo "::set-output name=output::${{helloworld_cli}}\n"
+          echo "::set-output name=output::$(helloworld_cli)\n"
         id: launch
       - name: test
         run: |
