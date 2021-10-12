@@ -1,14 +1,14 @@
 #include <iostream>
 
-#ifndef VERSION
-#define VERSION 1
+#ifndef PATCH_VERSION
+#define PATCH_VERSION 1
 #endif
 
-using namespace std;
+using namespace std; 
 
 
 int main() {
-    cout << "Version: " << VERSION << endl;
+    cout << "Version: " << PATCH_VERSION << endl;
     cout << "Hello, World!" << endl;    
     return 0;
-}
+} 
