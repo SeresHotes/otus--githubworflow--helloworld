@@ -48,4 +48,5 @@ jobs:
           target: "./helloworld-0.0.${{github.run_number}}-Linux.deb"
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: sudo apt install -y ./helloworld-0.0.${{github.run_number}}-Linux.deb
-      - run: python3 test.py ${{github.run_number}}
+      - run: ls -la
+      - run: python3 ./test.py ${{github.run_number}}
