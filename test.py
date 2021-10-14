@@ -6,7 +6,7 @@ if __name__ == '__main__':
     version = sys.argv[1]
     result = subprocess.run(['helloworld_cli'], stdout=subprocess.PIPE)
     
-    test_str = f"Version: {version}\nHello, world!\n"
+    test_str = f"Version: {version}\nHello, World!\n"
     print(test_str.encode())
     print(result.stdout.decode("utf-8").encode())
     res = result.stdout.decode("utf-8") == test_str
